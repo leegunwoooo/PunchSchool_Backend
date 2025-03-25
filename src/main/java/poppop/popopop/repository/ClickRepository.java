@@ -7,7 +7,9 @@ import poppop.popopop.entity.Ban;
 import poppop.popopop.entity.Grade;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 @Repository
 public interface ClickRepository extends JpaRepository<Click, Long> {
-    Click findByGradeAndBan(Grade grade, Ban ban);
+    Optional<Click> findByGradeAndBan(Grade grade, Ban ban);
 }

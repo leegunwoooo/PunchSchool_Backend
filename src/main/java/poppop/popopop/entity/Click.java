@@ -26,10 +26,14 @@ public class Click {
 
     private int clickCount;
 
-    public Click(Grade grade, Ban ban, int clickCount) {
+    public Click(Grade grade, Ban ban) {
         this.grade = grade;
         this.ban = ban;
-        this.clickCount = clickCount;
+        this.clickCount = 0;
+    }
+
+    public void increment() {
+        this.clickCount++;
     }
 }
 

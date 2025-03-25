@@ -17,7 +17,7 @@ public class ClickService {
     private final ClickRepository clickRepository;
 
     public Click getClickCount(Grade grade, Ban ban) {
-        return clickRepository.findByGradeAndBan(grade, ban);
+        return clickRepository.findByGradeAndBan(grade, ban).orElse(null);
     }
 
     public List<Click> getAllClickCounts() {
@@ -25,15 +25,11 @@ public class ClickService {
     }
 
     @Transactional
-    public Click saveClick(Grade grade, Ban ban, int clickCount) {
-        Click click = clickRepository.findByGradeAndBan(grade, ban);
+    public void incrementClick(Grade grade, Ban ban) {
+        Click click = clickRepository.findByGradeAndBan(grade, ban)
+                .orElseGet(() -> new Click(grade, ban));
 
-        if (click == null) {
-            click = new Click(grade, ban, clickCount);
-        } else {
-            click.setClickCount(click.getClickCount() + clickCount);
-        }
-
-        return clickRepository.save(click);
+        click.increment();
+        clickRepository.save(click);
     }
 }
