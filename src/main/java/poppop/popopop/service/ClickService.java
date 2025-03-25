@@ -25,11 +25,11 @@ public class ClickService {
     }
 
     @Transactional
-    public void incrementClick(Grade grade, Ban ban) {
+    public Click incrementClick(Grade grade, Ban ban) {
         Click click = clickRepository.findByGradeAndBan(grade, ban)
                 .orElseGet(() -> new Click(grade, ban));
 
         click.increment();
-        clickRepository.save(click);
+        return clickRepository.save(click);
     }
 }

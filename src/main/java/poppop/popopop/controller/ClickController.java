@@ -29,8 +29,9 @@ public class ClickController {
     }
 
     @PostMapping("/{grade}/{ban}")
-    public void incrementClick(@PathVariable Grade grade,
+    public Click incrementClick(@PathVariable Grade grade,
                                 @PathVariable Ban ban) {
-        clickService.incrementClick(grade, ban);
+        Click click = clickService.incrementClick(grade, ban);
+        return click;
     }
 }
