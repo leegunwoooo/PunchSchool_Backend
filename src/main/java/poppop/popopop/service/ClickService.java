@@ -16,6 +16,8 @@ public class ClickService {
 
     private final ClickRepository clickRepository;
 
+    private final AsyncClickService asyncClickService;
+
     public Click getClickCount(Grade grade, Ban ban) {
         return clickRepository.findByGradeAndBan(grade, ban).orElse(null);
     }
@@ -24,12 +26,7 @@ public class ClickService {
         return clickRepository.findAll();
     }
 
-    @Transactional
-    public Click incrementClick(Grade grade, Ban ban) {
-        Click click = clickRepository.findByGradeAndBan(grade, ban)
-                .orElseGet(() -> new Click(grade, ban));
-
-        click.increment();
-        return clickRepository.save(click);
+    public void incrementClick(Grade grade, Ban ban) {
+        asyncClickService.incrementClickAsync(grade, ban);
     }
 }
