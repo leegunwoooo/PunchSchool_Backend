@@ -6,5 +6,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ClickCountDTO {
-    int clickCount;
+    int count;
 }

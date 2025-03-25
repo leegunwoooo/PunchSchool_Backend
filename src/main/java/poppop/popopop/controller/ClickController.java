@@ -32,6 +32,6 @@ public class ClickController {
     public Click incrementClick(@PathVariable Grade grade,
                                 @PathVariable Ban ban,
                                 @RequestBody ClickCountDTO clickCountDTO) {
-        return clickService.saveClick(grade, ban, clickCountDTO.getClickCount());
+        return clickService.saveClick(grade, ban, clickCountDTO.getCount());
     }
 }
