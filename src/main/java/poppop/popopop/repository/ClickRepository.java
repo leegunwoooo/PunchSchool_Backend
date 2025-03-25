@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
 public interface ClickRepository extends JpaRepository<Click, Long> {
-    public Click findByGradeAndBan(Grade grade, Ban ban);
+    Click findByGradeAndBan(Grade grade, Ban ban);
 }
