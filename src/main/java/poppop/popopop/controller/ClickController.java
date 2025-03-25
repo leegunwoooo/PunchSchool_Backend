@@ -3,7 +3,7 @@ package poppop.popopop.controller;
 import poppop.popopop.entity.Ban;
 import poppop.popopop.entity.Click;
 import poppop.popopop.entity.Grade;
-import poppop.popopop.entity.dto.ClickCountDTO;
+
 import org.springframework.web.bind.annotation.*;
 import poppop.popopop.service.ClickService;
 
