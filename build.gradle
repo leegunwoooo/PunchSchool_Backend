@@ -33,6 +33,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind'
     implementation 'org.mariadb.jdbc:mariadb-java-client'
 
+    implementation 'com.bucket4j:bucket4j-core:8.7.0'
 }
 
 tasks.named('test') {

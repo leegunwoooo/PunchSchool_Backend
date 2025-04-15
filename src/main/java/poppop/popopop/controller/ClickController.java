@@ -1,6 +1,5 @@
 package poppop.popopop.controller;
 
-import lombok.RequiredArgsConstructor;
 import poppop.popopop.entity.Ban;
 import poppop.popopop.entity.Click;
 import poppop.popopop.entity.Grade;
@@ -11,13 +10,16 @@ import poppop.popopop.service.ClickService;
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
 public class ClickController {
 
     private final ClickService clickService;
 
-    @GetMapping
-    public Click getClickCount(@RequestParam Grade grade, @RequestParam Ban ban) {
+    public ClickController(ClickService clickService) {
+        this.clickService = clickService;
+    }
+
+    @GetMapping("/{grade}/{ban}")
+    public Click getClickCount(@PathVariable Grade grade, @PathVariable Ban ban) {
         return clickService.getClickCount(grade, ban);
     }
 
@@ -26,8 +28,8 @@ public class ClickController {
         return clickService.getAllClickCounts();
     }
 
-    @PostMapping
-    public void incrementClick(@RequestParam Grade grade, @RequestParam Ban ban) {
+    @PostMapping("/{grade}/{ban}")
+    public void incrementClick(@PathVariable Grade grade, @PathVariable Ban ban) {
         clickService.incrementClick(grade, ban);
     }
 }

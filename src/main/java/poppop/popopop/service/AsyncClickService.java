@@ -20,12 +20,12 @@ public class AsyncClickService {
 
     @Async
     @Transactional
-    public CompletableFuture<Click> incrementClickAsync(Grade grade, Ban ban) {
+    public void incrementClickAsync(Grade grade, Ban ban) {
         Click click = clickRepository.findByGradeAndBan(grade, ban)
                 .orElseGet(() -> new Click(grade, ban));
 
         click.increment();
-        return CompletableFuture.completedFuture(clickRepository.save(click));
+        CompletableFuture.completedFuture(clickRepository.save(click));
     }
 }
 
