@@ -18,7 +18,7 @@ public class ClickController {
         this.clickService = clickService;
     }
 
-    @GetMapping("/{grade}/{ban}")
+    @GetMapping
     public Click getClickCount(@RequestParam Grade grade, @RequestParam Ban ban) {
         return clickService.getClickCount(grade, ban);
     }
@@ -28,7 +28,7 @@ public class ClickController {
         return clickService.getAllClickCounts();
     }
 
-    @PostMapping("/{grade}/{ban}")
+    @PostMapping
     public void incrementClick(@RequestParam Grade grade, @RequestParam Ban ban) {
         clickService.incrementClick(grade, ban);
     }
