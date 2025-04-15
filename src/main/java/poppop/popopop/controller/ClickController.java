@@ -19,7 +19,7 @@ public class ClickController {
     }
 
     @GetMapping("/{grade}/{ban}")
-    public Click getClickCount(@PathVariable Grade grade, @PathVariable Ban ban) {
+    public Click getClickCount(@RequestParam Grade grade, @RequestParam Ban ban) {
         return clickService.getClickCount(grade, ban);
     }
 
@@ -29,7 +29,7 @@ public class ClickController {
     }
 
     @PostMapping("/{grade}/{ban}")
-    public void incrementClick(@PathVariable Grade grade, @PathVariable Ban ban) {
+    public void incrementClick(@RequestParam Grade grade, @RequestParam Ban ban) {
         clickService.incrementClick(grade, ban);
     }
 }
