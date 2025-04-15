@@ -3,6 +3,6 @@ package poppop.popopop.entity;
 public enum Ban {
     firstClass,
     secondClass,
-    thiredClass,
+    thirdClass,
     fourthClass
 }

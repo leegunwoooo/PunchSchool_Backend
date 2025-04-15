@@ -3,7 +3,6 @@ package poppop.popopop.service;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import poppop.popopop.entity.Ban;
 import poppop.popopop.entity.Click;
 import poppop.popopop.entity.Grade;
